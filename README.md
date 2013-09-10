@@ -1,3 +1,13 @@
+Реализация "GWhirl"
+====================
+Автор: Георгий Агапов (группа 2537)
+
+Оригинальная ссылка на проект: https://github.com/georgeee/ITMO_android_whirl
+
+APK: https://docs.google.com/file/d/0BypXXUUEY0ZwekVBTzBlaEd3cnM/edit?usp=sharing
+
+
+
 Материалы первой лекции:
 =======
 http://yadi.sk/d/8rCsEvMd8zvhc

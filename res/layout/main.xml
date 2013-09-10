@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="119dp"
+            android:layout_height="24dp"
+            android:text="Color count"
+            android:id="@+id/colorCountLabel" android:layout_gravity="left|center_vertical" android:textSize="20dp"/>
+    <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorCountBar" android:layout_gravity="left|center_vertical" android:max="50"
+            android:progress="15" android:indeterminate="false"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorCountText" android:layout_gravity="left|center_vertical" android:textSize="16dp"
+            android:text="15"/>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show FPS"
+                android:id="@+id/showFPSBox" android:layout_gravity="right|center_vertical" android:checked="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do scale"
+                android:id="@+id/doScaleBox"
+                android:checked="true"
+                android:layout_gravity="right|center_vertical"
+                android:layout_toRightOf="@+id/showFPSBox" android:layout_alignTop="@+id/showFPSBox"
+                android:layout_marginLeft="5dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Width"
+                android:id="@+id/textView2" android:layout_gravity="left|center_vertical" android:textSize="16dp"
+                android:layout_toRightOf="@+id/heightTextField" android:layout_alignTop="@+id/heightTextField"
+                android:layout_marginLeft="5dp" android:paddingTop="5dp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="320"
+                android:id="@+id/heightTextField" android:layout_gravity="left|center_vertical"
+                android:layout_toRightOf="@+id/textView1" android:layout_alignTop="@+id/textView1"
+                android:layout_marginLeft="5dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Height"
+                android:id="@+id/textView1" android:textSize="16dp"
+                android:layout_alignParentLeft="true" android:paddingTop="5dp"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="240"
+                android:id="@+id/widthTextField"
+                android:layout_toRightOf="@+id/textView2" android:layout_alignTop="@+id/textView2"
+                android:layout_marginLeft="5dp"/>
+    </RelativeLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Algorithm"
+            android:id="@+id/textView" android:layout_gravity="left|center_vertical"/>
+    <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:layout_toRightOf="@+id/roundAlgoRadioButton"
+            android:layout_alignTop="@+id/squareAlgoRadioButton"
+            android:layout_alignBottom="@+id/squareAlgoRadioButton" android:orientation="horizontal">
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Round"
+                android:id="@+id/roundAlgoRadioButton" android:checked="false"
+                android:layout_toRightOf="@+id/squareAlgoRadioButton"
+                android:layout_alignTop="@+id/squareAlgoRadioButton" android:layout_marginLeft="5dp"
+                android:layout_gravity="right|center_vertical"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square"
+                android:id="@+id/squareAlgoRadioButton" android:layout_gravity="left|center_vertical" android:checked="true"
+                android:layout_alignParentLeft="true" android:layout_alignParentTop="true"/>
+    </RadioGroup>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action!"
+            android:id="@+id/actionButton" android:layout_gravity="left|center_vertical"/>
+</LinearLayout>
