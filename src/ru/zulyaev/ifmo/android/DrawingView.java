@@ -1,6 +1,7 @@
 package ru.zulyaev.ifmo.android;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -12,9 +13,14 @@ import java.util.concurrent.Future;
  * @author Никита
  */
 public class DrawingView extends SurfaceView implements SurfaceHolder.Callback {
-    private ExecutorService service = Executors.newSingleThreadExecutor();
+    private static final int TASK_WIDTH = 240;
+    private static final int TASK_HEIGHT = 320;
+
+    private ExecutorService service = Executors.newFixedThreadPool(2);
     private Runnable drawingRunnable;
-    private Future<?> future;
+    private UpdaterRunnable updaterRunnable;
+    private Future<?> drawingFuture;
+    private Future<?> updaterFuture;
 
     private boolean fullscreen;
     private boolean hack;
@@ -28,8 +34,20 @@ public class DrawingView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        drawingRunnable = new DrawingRunnable(holder, fullscreen, hack);
-        future = service.submit(drawingRunnable);
+        final int width;
+        final int height;
+        if (fullscreen) {
+            Rect size = holder.getSurfaceFrame();
+            width = size.right;
+            height = size.bottom;
+        } else {
+            width = TASK_WIDTH;
+            height = TASK_HEIGHT;
+        }
+        updaterRunnable = new UpdaterRunnable(width, height, hack);
+        drawingRunnable = new DrawingRunnable(holder, updaterRunnable, width, height);
+        drawingFuture = service.submit(drawingRunnable);
+        updaterFuture = service.submit(updaterRunnable);
     }
 
     @Override
@@ -42,15 +60,23 @@ public class DrawingView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void pause() {
-        if (future != null) {
-            future.cancel(true);
-            future = null;
+        if (drawingFuture != null) {
+            drawingFuture.cancel(true);
+            drawingFuture = null;
+
+        }
+        if (updaterFuture != null) {
+            updaterFuture.cancel(true);
+            updaterFuture = null;
         }
     }
 
     public void resume() {
-        if (drawingRunnable != null && future == null) {
-            future = service.submit(drawingRunnable);
+        if (drawingRunnable != null && drawingFuture == null) {
+            drawingFuture = service.submit(drawingRunnable);
+        }
+        if (updaterRunnable != null && updaterFuture == null) {
+            updaterFuture = service.submit(updaterRunnable);
         }
     }
 }
