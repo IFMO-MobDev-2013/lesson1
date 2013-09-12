@@ -20,3 +20,7 @@ http://en.wikipedia.org/wiki/Cyclic_cellular_automaton
 Подробнее про пулл-реквесты можно почитать тут, например: http://habrahabr.ru/post/125999/ и https://help.github.com/articles/using-pull-requests.
 
 Результат принимается до четверга (12 сентября) 23:59. После этого оценка за это домашнее задание автоматически снижается в два раза.
+
+Оценки:
+=======
+https://docs.google.com/spreadsheet/ccc?key=0AkYNnR0IM6SpdEJPcWRpUGNKYzRCUExnamJ4NmJMYXc&usp=sharing
