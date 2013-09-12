@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.View;
 
 import java.text.DecimalFormat;
@@ -52,6 +51,7 @@ class WhirlView extends View {
 
         colors = new int[h*w];
 
+        // Pleasant white-green palette.
         palette = new int[COLOR_NUMBER];
         for (int i = 0; i < COLOR_NUMBER; i++) {
             palette[i] = Color.argb(0, 255 - (255*i/ COLOR_NUMBER), 255, 255 - (255*i/ COLOR_NUMBER));
@@ -79,8 +79,9 @@ class WhirlView extends View {
     }
 
     private boolean updatePoint(int x, int y, int[][] originalField, int[][] newField) {
-        int L = (x - 1 < 0? fieldWidth + x - 1 : x - 1);
-        int R = (x + 1 >= fieldWidth ? x - fieldWidth + 1 : x + 1);
+        // Copy-paste code. Can't be much faster.
+        int L = (x - 1 < 0? fieldWidth - 1 : x - 1);
+        int R = (x + 1 >= fieldWidth ? 0 : x + 1);
         int P = (y - 1 < 0? fieldHeight + y - 1 : y - 1);
         int N = (y + 1 >= fieldHeight ? y - fieldHeight + 1 : y + 1);
         int nextColor = (originalField[y][x] + 1) % COLOR_NUMBER;
@@ -101,20 +102,26 @@ class WhirlView extends View {
     }
 
     private void redrawScreen(Canvas screen) {
-        Log.d("WhirlActivity", "redrawing");
+        // Finding out colours
         for (int y = 0; y < fieldHeight; y++) {
             for (int x = 0; x < fieldWidth; x++) {
-                colors[y* fieldWidth + x] = palette[field[y][x]]; // magic number to be safe from overflows
+                colors[y* fieldWidth + x] = palette[field[y][x]];
             }
         }
 
+        // Scaling canvas to interpolate 240x320 to native resolution
+        screen.scale(scaleFactorX, scaleFactorY);
         screen.drawBitmap(colors, 0, fieldWidth, 0.0F, 0.0F, fieldWidth, fieldHeight, false, null);
-        screen.setMatrix(identity);
 
+        // Now for FPS counting. I'm averaging over last 10 frames.
         long timeDelta = System.nanoTime() - lastUpdate[lastFrame % 10];
         float fps = 10000000000.0f/timeDelta; // dragons ahoy! 10^10 = 10^9 * 10 (nanoseconds / 10 frames)
+
+        // I would want to draw text in native resolution, so I scale canvas back to 1:1 dimensions
+        screen.setMatrix(identity);
         if (lastFrame > 10) screen.drawText(fpsFormat.format(fps), 20.0f, 40.0f, textPaint);
         screen.drawText("frame " + Integer.toString(lastFrame), 20.0f, 60.0f, textPaint);
+
         lastUpdate[lastFrame % 10] = System.nanoTime();
         lastFrame++;
     }
@@ -122,7 +129,6 @@ class WhirlView extends View {
     @Override
     public void onDraw(Canvas canvas) {
         recalculateField();
-        canvas.scale(scaleFactorX, scaleFactorY);
         redrawScreen(canvas);
         invalidate();
     }
