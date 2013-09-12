@@ -1,3 +1,9 @@
+Project : Whirl Life
+=======
+Автор: Дронов Илья(2537)
+
+Apk : http://yadi.sk/d/ajsc14ZC9BBfh
+
 Материалы первой лекции:
 =======
 http://yadi.sk/d/8rCsEvMd8zvhc
