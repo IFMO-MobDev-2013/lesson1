@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\Users\Nick Smelik\AndroidStudioProjects\WhirlViewProject\WhirlView\src\main\assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\Users\Nick Smelik\AndroidStudioProjects\WhirlViewProject\WhirlView\src\debug\assets" />
+    </dataSet>
+
+</merger>
