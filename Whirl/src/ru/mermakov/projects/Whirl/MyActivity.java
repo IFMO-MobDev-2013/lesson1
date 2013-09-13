@@ -35,6 +35,7 @@ public class MyActivity extends Activity {
         private int frame;
         private double fps;
         private Paint paint;
+        private Matrix matrix;
 
         public WhirlView(Context context) {
             super(context);
@@ -68,44 +69,46 @@ public class MyActivity extends Activity {
             display.getSize(point);
             displayHeight = point.y;
             displayWidth = point.x;
-            field = new int[width][height];
-            field2 = new int[width][height];
+            field = new int[height][width];
+            field2 = new int[height][width];
             initColors();
             initField();
             frame = 0;
-            paint=new Paint();
+            paint = new Paint();
             paint.setColor(Color.BLACK);
+            matrix = new Matrix();
+            matrix.setScale((float) displayWidth / width, (float) displayHeight / height);
         }
 
         private void initField() {
             Random myrnd = new Random();
-            for (int i = 0; i < width; ++i)
-                for (int j = 0; j < height; ++j)
+            for (int i = 0; i < height; ++i)
+                for (int j = 0; j < width; ++j)
                     field[i][j] = myrnd.nextInt(maxColors);
         }
 
         private void updateFiled() {
             int tmp = 0;
-            for (int i = 0; i < width; ++i) {
+            for (int i = 0; i < height; ++i) {
                 int x, X;
                 if (i - 1 == -1)
-                    x = width - 1;
+                    x = height - 1;
                 else
                     x = i - 1;
-                if (i + 1 == width)
+                if (i + 1 == height)
                     X = 0;
                 else
                     X = i + 1;
-                for (int j = 0; j < height; ++j) {
+                for (int j = 0; j < width; ++j) {
                     int cur = field[i][j] + 1;
                     if (cur == maxColors)
                         cur = 0;
                     int y, Y;
                     if (j - 1 == -1)
-                        y = height - 1;
+                        y = width - 1;
                     else
                         y = j - 1;
-                    if (j + 1 == height)
+                    if (j + 1 == width)
                         Y = 0;
                     else
                         Y = j + 1;
@@ -127,8 +130,6 @@ public class MyActivity extends Activity {
         @Override
         public void onDraw(Canvas canvas) {
             updateFiled();
-            Matrix matrix = new Matrix();
-            matrix.setScale((float) displayWidth / width, (float) displayHeight / height);
             canvas.setMatrix(matrix);
             canvas.drawBitmap(col, 0, width, 0, 0, width, height, false, null);
             frame++;
@@ -140,7 +141,6 @@ public class MyActivity extends Activity {
                 frame = 0;
                 time1 = tmp1;
             }
-
             canvas.drawText(Math.ceil(fps * 10) / 10 + " FPS", 5, 10, paint);
             invalidate();
         }

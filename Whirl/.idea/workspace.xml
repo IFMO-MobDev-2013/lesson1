@@ -16,7 +16,7 @@
     <ignored path="Whirl.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/res/values/strings.xml" changelist="cc361fdf-ebc9-4a73-8f1b-a37cb526f79e" time="1378929079571" ignored="false" />
-    <file path="/MyActivity.java" changelist="cc361fdf-ebc9-4a73-8f1b-a37cb526f79e" time="1379048050907" ignored="false" />
+    <file path="/MyActivity.java" changelist="cc361fdf-ebc9-4a73-8f1b-a37cb526f79e" time="1379049421593" ignored="false" />
     <file path="/fragment.java" changelist="cc361fdf-ebc9-4a73-8f1b-a37cb526f79e" time="1379048328043" ignored="false" />
     <file path="$PROJECT_DIR$/gen/ru/mermakov/projects/Whirl/R.java" changelist="cc361fdf-ebc9-4a73-8f1b-a37cb526f79e" time="1379047555117" ignored="false" />
     <file path="$PROJECT_DIR$/gen/ru/mermakov/projects/Whirl/Manifest.java" changelist="cc361fdf-ebc9-4a73-8f1b-a37cb526f79e" time="1379047656143" ignored="false" />
@@ -84,7 +84,7 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/mermakov/projects/Whirl/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="218" selection-start="3998" selection-end="3998" vertical-scroll-proportion="0.55618614">
+            <state line="143" column="59" selection-start="5304" selection-end="5304" vertical-scroll-proportion="1.6508423">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,7 +222,7 @@
     <property name="recentsLimit" value="5" />
     <property name="AndroidLayoutSelectedEditor" value="android-designer" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.102:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="QTCYFV70G308002CD" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -396,7 +396,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -419,7 +419,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24493062" sideWeight="0.6705757" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2451193" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2446352" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6705757" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -524,7 +524,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/mermakov/projects/Whirl/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="218" selection-start="3998" selection-end="3998" vertical-scroll-proportion="0.55618614">
+        <state line="143" column="59" selection-start="5304" selection-end="5304" vertical-scroll-proportion="1.6508423">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
