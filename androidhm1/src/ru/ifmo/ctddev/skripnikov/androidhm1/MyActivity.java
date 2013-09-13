@@ -14,13 +14,14 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class MyActivity extends Activity {
-    int w = 240;
-    int h = 320;
-    Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+    final int w = 240;
+    final int h = 320;
     int[] pixels = new int[w * h];
     float wk = 3;
     float hk = 3;
     long time = 1;
+    int cn = 16;
+    int k = 255 / cn;
     int[][] field = new int[h + 2][w + 2];
     Paint p = new Paint();
 
@@ -76,18 +77,21 @@ public class MyActivity extends Activity {
             @Override
             public void run() {
                 Canvas canvas;
+
                 while (runFlag) {
                     canvas = null;
                     try {
                         canvas = surfaceHolder.lockCanvas(null);
-                        synchronized (surfaceHolder) {
-                            long newTime = Calendar.getInstance().getTimeInMillis();
-                            long d = newTime - time;
-                            time = newTime;
-                            long fps = 1000 / d;
-                            nextField();
-                            drawField(canvas);
-                            canvas.drawText(Long.toString(fps) + " FPS", 100, 100, p);
+                        if (canvas != null) {
+                            synchronized (surfaceHolder) {
+                                long newTime = Calendar.getInstance().getTimeInMillis();
+                                long d = newTime - time;
+                                time = newTime;
+                                long fps = 1000 / d;
+                                nextField();
+                                drawField(canvas);
+                                canvas.drawText(Long.toString(fps) + " FPS", 20, 20, p);
+                            }
                         }
                     } finally {
                         if (canvas != null) {
@@ -102,7 +106,7 @@ public class MyActivity extends Activity {
                 int[][] newField = new int[h + 2][w + 2];
                 for (int i = 1; i <= h; i++)
                     for (int j = 1; j <= w; j++) {
-                        int next = (field[i][j] + 1) % 16;
+                        int next = (field[i][j] + 1) % cn;
                         if (next == field[i - 1][j - 1]
                                 || next == field[i - 1][j]
                                 || next == field[i - 1][j + 1]
@@ -112,7 +116,7 @@ public class MyActivity extends Activity {
                                 || next == field[i + 1][j]
                                 || next == field[i + 1][j + 1]) {
                             newField[i][j] = next;
-                            pixels[(i - 1) * w + j - 1] = Color.argb(255, next * 15, 128, 255 - next * 15);
+                            pixels[(i - 1) * w + j - 1] = Color.argb(255, next * k, 128, 255 - next * k);
                         } else {
                             newField[i][j] = field[i][j];
                         }
@@ -121,9 +125,8 @@ public class MyActivity extends Activity {
             }
 
             private void drawField(Canvas canvas) {
-                bmp.setPixels(pixels, 0, w, 0, 0, w, h);
-                canvas.drawBitmap(Bitmap.createScaledBitmap(bmp, getWidth(), getHeight(), false), 10, 10, null);
-                //canvas.drawBitmap(pixels, 0, w, 0, 0, w, h, false, p);
+                canvas.scale(wk, hk);
+                canvas.drawBitmap(pixels, 0, w, 0, 0, w, h, false, p);
             }
 
             private void newBorder() {
@@ -146,12 +149,12 @@ public class MyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Random r = new Random();
-        p.setTextSize(100);
+        p.setTextSize(20);
         p.setARGB(255, 255, 255, 255);
         for (int i = 1; i <= h; i++)
             for (int j = 1; j <= w; j++) {
-                field[i][j] = r.nextInt(16);
-                pixels[(i - 1) * w + j - 1] = Color.argb(255, 100 + field[i][j] * 5, field[i][j] * 100, 200 - field[i][j] * 5);
+                field[i][j] = r.nextInt(cn);
+                pixels[(i - 1) * w + j - 1] = Color.argb(255, field[i][j] * k, 128, 255 - field[i][j] * k);
             }
         super.onCreate(savedInstanceState);
         setContentView(new MySurfaceView(this));

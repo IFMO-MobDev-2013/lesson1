@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/res/values/strings.xml" changelist="4cc1e2ae-793b-46f1-83a0-2429a6fbfded" time="1378889061826" ignored="false" />
     <file path="$PROJECT_DIR$/res/layout/main.xml" changelist="4cc1e2ae-793b-46f1-83a0-2429a6fbfded" time="1378889062126" ignored="false" />
-    <file path="/MyActivity.java" changelist="4cc1e2ae-793b-46f1-83a0-2429a6fbfded" time="1378972564426" ignored="false" />
+    <file path="/MyActivity.java" changelist="4cc1e2ae-793b-46f1-83a0-2429a6fbfded" time="1379057442141" ignored="false" />
     <file path="/fragment.java" changelist="4cc1e2ae-793b-46f1-83a0-2429a6fbfded" time="1378929593382" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +76,18 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="40" selection-start="217" selection-end="217" vertical-scroll-proportion="-3.2028985">
+            <state line="117" column="38" selection-start="4000" selection-end="4000" vertical-scroll-proportion="2.8509316">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/Program Files/android-sdk/sources/android-15/android/view/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6951" column="29" selection-start="261646" selection-end="261646" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,7 +175,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -204,6 +214,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -379,8 +390,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -397,7 +408,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.399841" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17011128" sideWeight="0.8118022" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18819776" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18819776" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -470,17 +481,28 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="28" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="81" column="27" selection-start="2513" selection-end="2513" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -494,7 +516,9 @@
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -508,7 +532,9 @@
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -522,27 +548,24 @@
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="28" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://D:/Program Files/android-sdk/sources/android-15/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="28" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Program Files/android-sdk/sources/android-15/android/graphics/Bitmap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="19" selection-start="897" selection-end="897" vertical-scroll-proportion="0.0">
+        <state line="177" column="0" selection-start="5801" selection-end="5801" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -554,17 +577,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Program Files/android-sdk/sources/android-15/java/util/Random.java">
+    <entry file="file://D:/Program Files/android-sdk/sources/android-15/android/graphics/Bitmap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="0" selection-start="5801" selection-end="5801" vertical-scroll-proportion="0.0">
+        <state line="27" column="19" selection-start="897" selection-end="897" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="28" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/android-sdk/sources/android-15/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6951" column="29" selection-start="261646" selection-end="261646" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/skripnikov/androidhm1/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="40" selection-start="217" selection-end="217" vertical-scroll-proportion="-3.2028985">
-          <folding />
+        <state line="117" column="38" selection-start="4000" selection-end="4000" vertical-scroll-proportion="2.8509316">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
