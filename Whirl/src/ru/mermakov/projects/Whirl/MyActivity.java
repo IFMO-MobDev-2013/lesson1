@@ -9,7 +9,6 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
 import java.util.Random;
 
 public class MyActivity extends Activity {
@@ -22,19 +21,20 @@ public class MyActivity extends Activity {
     }
 
     class WhirlView extends View {
-        private final int Widht = 240;
-        private final int Height = 320;
-        private Display _display;
-        private Point _point;
-        private int _displayWidth, _displayHeight;
+        private final int width = 240;
+        private final int height = 320;
+        private final int maxColors = 17;
+        private final int[] colors = new int[maxColors + 1];//17 colors + fps color
+        private Display display;
+        private Point point;
+        private int displayWidth;
+        private int displayHeight;
         private int[][] field, field2;
-        private final int Max_Colors = 17;
-        private final int[] colors = new int[18];//17 colors + fps color
-        private int[] col = new int[Widht * Height];
+        private int[] col = new int[width * height];
         private long time1;
         private int frame;
         private double fps;
-        Paint paint;
+        private Paint paint;
 
         public WhirlView(Context context) {
             super(context);
@@ -63,13 +63,13 @@ public class MyActivity extends Activity {
         }
 
         private void initRes() {
-            _display = getWindowManager().getDefaultDisplay();
-            _point = new Point();
-            _display.getSize(_point);
-            _displayHeight = _point.y;
-            _displayWidth = _point.x;
-            field = new int[Widht][Height];
-            field2 = new int[Widht][Height];
+            display = getWindowManager().getDefaultDisplay();
+            point = new Point();
+            display.getSize(point);
+            displayHeight = point.y;
+            displayWidth = point.x;
+            field = new int[width][height];
+            field2 = new int[width][height];
             initColors();
             initField();
             frame = 0;
@@ -79,33 +79,33 @@ public class MyActivity extends Activity {
 
         private void initField() {
             Random myrnd = new Random();
-            for (int i = 0; i < Widht; ++i)
-                for (int j = 0; j < Height; ++j)
-                    field[i][j] = myrnd.nextInt(Max_Colors);
+            for (int i = 0; i < width; ++i)
+                for (int j = 0; j < height; ++j)
+                    field[i][j] = myrnd.nextInt(maxColors);
         }
 
         private void updateFiled() {
             int tmp = 0;
-            for (int i = 0; i < Widht; ++i) {
+            for (int i = 0; i < width; ++i) {
                 int x, X;
                 if (i - 1 == -1)
-                    x = Widht - 1;
+                    x = width - 1;
                 else
                     x = i - 1;
-                if (i + 1 == Widht)
+                if (i + 1 == width)
                     X = 0;
                 else
                     X = i + 1;
-                for (int j = 0; j < Height; ++j) {
+                for (int j = 0; j < height; ++j) {
                     int cur = field[i][j] + 1;
-                    if (cur == Max_Colors)
+                    if (cur == maxColors)
                         cur = 0;
                     int y, Y;
                     if (j - 1 == -1)
-                        y = Height - 1;
+                        y = height - 1;
                     else
                         y = j - 1;
-                    if (j + 1 == Height)
+                    if (j + 1 == height)
                         Y = 0;
                     else
                         Y = j + 1;
@@ -128,9 +128,9 @@ public class MyActivity extends Activity {
         public void onDraw(Canvas canvas) {
             updateFiled();
             Matrix matrix = new Matrix();
-            matrix.setScale((float) _displayWidth / Widht, (float) _displayHeight / Height);
+            matrix.setScale((float) displayWidth / width, (float) displayHeight / height);
             canvas.setMatrix(matrix);
-            canvas.drawBitmap(col, 0, Widht, 0, 0, Widht, Height, false, null);
+            canvas.drawBitmap(col, 0, width, 0, 0, width, height, false, null);
             frame++;
             long tmp1 = SystemClock.uptimeMillis();
             long tmp2 = tmp1 - time1;
