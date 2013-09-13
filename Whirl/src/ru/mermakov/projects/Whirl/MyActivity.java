@@ -21,16 +21,16 @@ public class MyActivity extends Activity {
     }
 
     class WhirlView extends View {
-        private final int width = 240;
-        private final int height = 320;
-        private final int maxColors = 17;
-        private final int[] colors = new int[maxColors + 1];//17 colors + fps color
+        private final int WIDTH = 240;
+        private final int HEIGHT = 320;
+        private final int MAX_COLORS = 17;
+        private int[] colors = new int[MAX_COLORS + 1];//17 colors + fps color
         private Display display;
         private Point point;
         private int displayWidth;
         private int displayHeight;
         private int[][] field, field2;
-        private int[] col = new int[width * height];
+        private int[] col = new int[WIDTH * HEIGHT];
         private long time1;
         private int frame;
         private double fps;
@@ -69,46 +69,46 @@ public class MyActivity extends Activity {
             display.getSize(point);
             displayHeight = point.y;
             displayWidth = point.x;
-            field = new int[height][width];
-            field2 = new int[height][width];
+            field = new int[HEIGHT][WIDTH];
+            field2 = new int[HEIGHT][WIDTH];
             initColors();
             initField();
             frame = 0;
             paint = new Paint();
             paint.setColor(Color.BLACK);
             matrix = new Matrix();
-            matrix.setScale((float) displayWidth / width, (float) displayHeight / height);
+            matrix.setScale((float) displayWidth / WIDTH, (float) displayHeight / HEIGHT);
         }
 
         private void initField() {
             Random myrnd = new Random();
-            for (int i = 0; i < height; ++i)
-                for (int j = 0; j < width; ++j)
-                    field[i][j] = myrnd.nextInt(maxColors);
+            for (int i = 0; i < HEIGHT; ++i)
+                for (int j = 0; j < WIDTH; ++j)
+                    field[i][j] = myrnd.nextInt(MAX_COLORS);
         }
 
         private void updateFiled() {
             int tmp = 0;
-            for (int i = 0; i < height; ++i) {
+            for (int i = 0; i < HEIGHT; ++i) {
                 int x, X;
                 if (i - 1 == -1)
-                    x = height - 1;
+                    x = HEIGHT - 1;
                 else
                     x = i - 1;
-                if (i + 1 == height)
+                if (i + 1 == HEIGHT)
                     X = 0;
                 else
                     X = i + 1;
-                for (int j = 0; j < width; ++j) {
+                for (int j = 0; j < WIDTH; ++j) {
                     int cur = field[i][j] + 1;
-                    if (cur == maxColors)
+                    if (cur == MAX_COLORS)
                         cur = 0;
                     int y, Y;
                     if (j - 1 == -1)
-                        y = width - 1;
+                        y = WIDTH - 1;
                     else
                         y = j - 1;
-                    if (j + 1 == width)
+                    if (j + 1 == WIDTH)
                         Y = 0;
                     else
                         Y = j + 1;
@@ -131,7 +131,7 @@ public class MyActivity extends Activity {
         public void onDraw(Canvas canvas) {
             updateFiled();
             canvas.setMatrix(matrix);
-            canvas.drawBitmap(col, 0, width, 0, 0, width, height, false, null);
+            canvas.drawBitmap(col, 0, WIDTH, 0, 0, WIDTH, HEIGHT, false, null);
             frame++;
             long tmp1 = SystemClock.uptimeMillis();
             long tmp2 = tmp1 - time1;
