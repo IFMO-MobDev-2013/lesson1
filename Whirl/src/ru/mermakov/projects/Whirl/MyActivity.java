@@ -21,9 +21,9 @@ public class MyActivity extends Activity {
     }
 
     class WhirlView extends View {
-        private final int WIDTH = 240;
-        private final int HEIGHT = 320;
-        private final int MAX_COLORS = 17;
+        private static final int WIDTH = 240;
+        private static final int HEIGHT = 320;
+        private static final int MAX_COLORS = 17;
         private int[] colors = new int[MAX_COLORS + 1];//17 colors + fps color
         private Display display;
         private Point point;
