@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LearningAndroidCells</string>
+    <string name="mnuNoiseTitleEnable">Enable Random Noise</string>
+    <string name="mnuNoiseTitleDisable">Disable Random Noise</string>
+</resources>
