@@ -1,0 +1,120 @@
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of colors:"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select color:"
+        android:id="@+id/textView2"
+        android:textSize="20dp"
+        android:textIsSelectable="true"
+        android:layout_above="@+id/radioGroup"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_marginLeft="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/radioGroup"
+        android:layout_toLeftOf="@+id/textView2"
+        android:orientation="vertical"
+        android:layout_above="@+id/button">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16"
+            android:id="@+id/radioButton"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:id="@+id/radioButton2"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:orientation="vertical"
+        android:layout_above="@+id/button">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blac and white"
+            android:id="@+id/radioButton3"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blue"
+            android:id="@+id/radioButton4"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Green"
+            android:id="@+id/radioButton5"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orange"
+            android:id="@+id/radioButton6"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red"
+            android:id="@+id/radioButton7"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viole and pink"
+            android:id="@+id/radioButton8"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false" />
+    </RadioGroup>
+
+</RelativeLayout><!-- From: file:/C:/Users/Valeria/AndroidStudioProjects/MyApplication3Project/MyApplication3/src/main/res/layout/activity_main.xml -->
