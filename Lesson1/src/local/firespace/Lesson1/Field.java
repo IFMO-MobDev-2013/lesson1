@@ -13,7 +13,7 @@ public class Field {
 	public static final int Y = 320;
 	private static final int T_X = X-1;
 	private static final int T_Y = Y-1;
-	private static final int COLOUR_COUNT = 10;
+	private static final int COLOUR_COUNT = 3;
 
 	private int currentField[][];
 	private int updateField[][];
@@ -24,32 +24,34 @@ public class Field {
 		colours[0] = Color.argb(255, 255, 0, 0);
 		colours[1] = Color.argb(255, 0, 255, 0);
 		colours[2] = Color.argb(255, 0, 0, 255);
-		colours[3] = Color.argb(255, 0, 255, 255);
-		colours[4] = Color.argb(255, 255, 0, 255);
-		colours[5] = Color.argb(255, 255, 255, 0);
-		colours[6] = Color.argb(255, 255, 255, 255);
-		colours[7] = Color.argb(255, 153, 204, 153);
-		colours[8] = Color.argb(255, 102, 204, 0);
-		colours[9] = Color.argb(255, 102, 153, 102);
+//		colours[3] = Color.argb(255, 0, 255, 255);
+//		colours[4] = Color.argb(255, 255, 0, 255);
+//		colours[5] = Color.argb(255, 255, 255, 0);
+//		colours[6] = Color.argb(255, 255, 255, 255);
+//		colours[7] = Color.argb(255, 153, 204, 153);
+//		colours[8] = Color.argb(255, 102, 204, 0);
+//		colours[9] = Color.argb(255, 102, 153, 102);
 
 		Random rand = new Random();
 
 		for (int i = 0; i < X; i++) {
 			for (int j = 0; j < Y; j++) {
 				currentField[i][j] = rand.nextInt(COLOUR_COUNT);
+				updateField[i][j] = currentField[i][j];
 			}
 		}
 	}
 
 	private boolean check(final int i, final int j) {
-		return  (currentField[i][j]+1)%COLOUR_COUNT == currentField[i-1][j] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i+1][j] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i-1][j-1] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i][j-1] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i+1][j-1] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i-1][j+1] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i][j+1] ||
-				(currentField[i][j]+1)%COLOUR_COUNT == currentField[i+1][j+1];
+		int temp = (currentField[i][j]+1)%COLOUR_COUNT;
+		return  temp == currentField[i-1][j] ||
+				temp == currentField[i+1][j] ||
+				temp == currentField[i-1][j-1] ||
+				temp == currentField[i][j-1] ||
+				temp == currentField[i+1][j-1] ||
+				temp == currentField[i-1][j+1] ||
+				temp == currentField[i][j+1] ||
+				temp == currentField[i+1][j+1];
 	}
 
 	public Field() {
@@ -62,86 +64,78 @@ public class Field {
 
 	public int[] updateField() {
 
-		if ((currentField[0][0]+1)%COLOUR_COUNT == currentField[0][1] ||
-			(currentField[0][0]+1)%COLOUR_COUNT == currentField[1][0] ||
-			(currentField[0][0]+1)%COLOUR_COUNT == currentField[1][1]) {
+		int temp = (currentField[0][0]+1)%COLOUR_COUNT;
+		if (temp == currentField[0][1] ||
+			temp == currentField[1][0] ||
+			temp == currentField[1][1]) {
 
-			updateField[0][0] = (currentField[0][0]+1)%COLOUR_COUNT;
-		} else {
-			updateField[0][0] = currentField[0][0];
+			updateField[0][0] = temp;
 		}
 
-		if ((currentField[X-1][0]+1)%COLOUR_COUNT == currentField[X-2][0] ||
-			(currentField[X-1][0]+1)%COLOUR_COUNT == currentField[X-1][1] ||
-			(currentField[X-1][0]+1)%COLOUR_COUNT == currentField[X-2][1]) {
+		temp = (currentField[X-1][0]+1)%COLOUR_COUNT;
+		if (temp == currentField[X-2][0] ||
+			temp == currentField[X-1][1] ||
+			temp == currentField[X-2][1]) {
 
-			updateField[X-1][0] = (currentField[X-1][0]+1)%COLOUR_COUNT;
-		} else {
-			updateField[X-1][0] = currentField[X-1][0];
+			updateField[X-1][0] = temp;
 		}
 
-		if ((currentField[0][Y-1]+1)%COLOUR_COUNT == currentField[0][Y-2] ||
-			(currentField[0][Y-1]+1)%COLOUR_COUNT == currentField[1][Y-1] ||
-			(currentField[0][Y-1]+1)%COLOUR_COUNT == currentField[1][Y-2]) {
+		temp = (currentField[0][Y-1]+1)%COLOUR_COUNT;
+		if (temp == currentField[0][Y-2] ||
+			temp == currentField[1][Y-1] ||
+			temp == currentField[1][Y-2]) {
 
-			updateField[0][Y-1] = (currentField[0][Y-1]+1)%COLOUR_COUNT;
-		} else {
-			updateField[0][Y-1] = currentField[0][Y-1];
+			updateField[0][Y-1] = temp;
 		}
 
-		if ((currentField[X-1][Y-1]+1)%COLOUR_COUNT == currentField[X-2][Y-1] ||
-			(currentField[X-1][Y-1]+1)%COLOUR_COUNT == currentField[X-1][Y-2] ||
-			(currentField[X-1][Y-1]+1)%COLOUR_COUNT == currentField[X-2][Y-2]) {
+		temp = (currentField[X-1][Y-1]+1)%COLOUR_COUNT;
+		if (temp == currentField[X-2][Y-1] ||
+			temp == currentField[X-1][Y-2] ||
+			temp == currentField[X-2][Y-2]) {
 
-			updateField[X-1][Y-1] = (currentField[X-1][Y-1]+1)%COLOUR_COUNT;
-		} else {
-			updateField[X-1][Y-1] = currentField[X-1][Y-1];
+			updateField[X-1][Y-1] = temp;
 		}
 
 		for (int i = 1; i < T_X; i++) {
-			if ((currentField[i][0]+1)%COLOUR_COUNT == currentField[i-1][0] ||
-				(currentField[i][0]+1)%COLOUR_COUNT == currentField[i+1][0] ||
-				(currentField[i][0]+1)%COLOUR_COUNT == currentField[i-1][1] ||
-				(currentField[i][0]+1)%COLOUR_COUNT == currentField[i][1] ||
-				(currentField[i][0]+1)%COLOUR_COUNT == currentField[i+1][1]) {
+			temp = (currentField[i][0]+1)%COLOUR_COUNT;
+			if (temp == currentField[i-1][0] ||
+				temp == currentField[i+1][0] ||
+				temp == currentField[i-1][1] ||
+				temp == currentField[i][1] ||
+				temp == currentField[i+1][1]) {
 
-				updateField[i][0] = (currentField[i][0]+1)%COLOUR_COUNT;
-			} else {
-				updateField[i][0] = currentField[i][0];
+				updateField[i][0] = temp;
 			}
 
-			if ((currentField[i][T_Y]+1)%COLOUR_COUNT == currentField[i-1][T_Y] ||
-				(currentField[i][T_Y]+1)%COLOUR_COUNT == currentField[i+1][T_Y] ||
-				(currentField[i][T_Y]+1)%COLOUR_COUNT == currentField[i-1][T_Y-1] ||
-				(currentField[i][T_Y]+1)%COLOUR_COUNT == currentField[i][T_Y-1] ||
-				(currentField[i][T_Y]+1)%COLOUR_COUNT == currentField[i+1][T_Y-1]) {
+			temp = (currentField[i][T_Y]+1)%COLOUR_COUNT;
+			if (temp == currentField[i-1][T_Y] ||
+				temp == currentField[i+1][T_Y] ||
+				temp == currentField[i-1][T_Y-1] ||
+				temp == currentField[i][T_Y-1] ||
+				temp == currentField[i+1][T_Y-1]) {
 
-				updateField[i][T_Y] = (currentField[i][T_Y]+1)%COLOUR_COUNT;
-			} else {
-				updateField[i][T_Y] = currentField[i][T_Y];
+				updateField[i][T_Y] = temp;
 			}
 		}
 		for (int i = 1; i < T_Y; i++) {
-			if ((currentField[0][i]+1)%COLOUR_COUNT == currentField[0][i-1] ||
-				(currentField[0][i]+1)%COLOUR_COUNT == currentField[0][i+1] ||
-				(currentField[0][i]+1)%COLOUR_COUNT == currentField[1][i-1] ||
-				(currentField[0][i]+1)%COLOUR_COUNT == currentField[1][i] ||
-				(currentField[0][i]+1)%COLOUR_COUNT == currentField[1][i+1]) {
+			temp = (currentField[0][i]+1)%COLOUR_COUNT;
+			if (temp == currentField[0][i-1] ||
+				temp == currentField[0][i+1] ||
+				temp == currentField[1][i-1] ||
+				temp == currentField[1][i] ||
+				temp == currentField[1][i+1]) {
 
-				updateField[0][i] = (currentField[0][i]+1)%COLOUR_COUNT;
-			} else {
-				updateField[0][i] = currentField[0][i];
+				updateField[0][i] = temp;
 			}
 
-			if ((currentField[T_X][i]+1)%COLOUR_COUNT == currentField[T_X][i-1] ||
-				(currentField[T_X][i]+1)%COLOUR_COUNT == currentField[T_X][i+1] ||
-				(currentField[T_X][i]+1)%COLOUR_COUNT == currentField[T_X-1][i-1] ||
-				(currentField[T_X][i]+1)%COLOUR_COUNT == currentField[T_X-1][i] ||
-				(currentField[T_X][i]+1)%COLOUR_COUNT == currentField[T_X-1][i+1]) {
+			temp = (currentField[T_X][i]+1)%COLOUR_COUNT;
+			if (temp == currentField[T_X][i-1] ||
+				temp == currentField[T_X][i+1] ||
+				temp == currentField[T_X-1][i-1] ||
+				temp == currentField[T_X-1][i] ||
+				temp == currentField[T_X-1][i+1]) {
 
-				updateField[T_X][i] = (currentField[T_X][i]+1)%COLOUR_COUNT;
-			} else {
-				updateField[T_X][i] = currentField[0][i];
+				updateField[T_X][i] = temp;
 			}
 		}
 
@@ -149,8 +143,6 @@ public class Field {
 			for (int j = 1; j < T_Y; j++) {
 				if (check(i, j)) {
 					updateField[i][j] = (currentField[i][j]+1)%COLOUR_COUNT;
-				} else {
-					updateField[i][j] = currentField[i][j];
 				}
 			}
 		}
