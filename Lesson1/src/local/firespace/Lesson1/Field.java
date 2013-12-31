@@ -67,31 +67,51 @@ public class Field {
 		int temp = (currentField[0][0]+1)%COLOUR_COUNT;
 		if (temp == currentField[0][1] ||
 			temp == currentField[1][0] ||
-			temp == currentField[1][1]) {
+			temp == currentField[1][1] ||
+			temp == currentField[0][T_Y] ||
+			temp == currentField[T_X][0] ||
+			temp == currentField[T_X][T_Y] ||
+			temp == currentField[T_X][1] ||
+			temp == currentField[1][T_Y]) {
 
 			updateField[0][0] = temp;
 		}
 
-		temp = (currentField[X-1][0]+1)%COLOUR_COUNT;
-		if (temp == currentField[X-2][0] ||
-			temp == currentField[X-1][1] ||
-			temp == currentField[X-2][1]) {
+		temp = (currentField[T_X][0]+1)%COLOUR_COUNT;
+		if (temp == currentField[T_X-1][0] ||
+			temp == currentField[T_X][1] ||
+			temp == currentField[T_X-1][1] ||
+			temp == currentField[T_X][T_Y] ||
+			temp == currentField[0][1] ||
+			temp == currentField[T_X-1][T_Y] ||
+			temp == currentField[0][0] ||
+			temp == currentField[0][T_Y]) {
 
 			updateField[X-1][0] = temp;
 		}
 
-		temp = (currentField[0][Y-1]+1)%COLOUR_COUNT;
-		if (temp == currentField[0][Y-2] ||
-			temp == currentField[1][Y-1] ||
-			temp == currentField[1][Y-2]) {
+		temp = (currentField[0][T_Y]+1)%COLOUR_COUNT;
+		if (temp == currentField[0][T_Y-1] ||
+			temp == currentField[1][T_Y] ||
+			temp == currentField[1][T_Y-1] ||
+			temp == currentField[T_X][T_Y-1] ||
+			temp == currentField[T_X][T_Y] ||
+			temp == currentField[T_X][0] ||
+			temp == currentField[0][0] ||
+			temp == currentField[1][0]) {
 
 			updateField[0][Y-1] = temp;
 		}
 
-		temp = (currentField[X-1][Y-1]+1)%COLOUR_COUNT;
-		if (temp == currentField[X-2][Y-1] ||
-			temp == currentField[X-1][Y-2] ||
-			temp == currentField[X-2][Y-2]) {
+		temp = (currentField[T_X][T_Y]+1)%COLOUR_COUNT;
+		if (temp == currentField[T_X-1][T_Y] ||
+			temp == currentField[T_X][T_Y-1] ||
+			temp == currentField[T_X-1][T_Y-1] ||
+			temp == currentField[0][T_Y-1] ||
+			temp == currentField[0][T_Y] ||
+			temp == currentField[0][0] ||
+			temp == currentField[T_X][0] ||
+			temp == currentField[T_X-1][0]) {
 
 			updateField[X-1][Y-1] = temp;
 		}
@@ -102,7 +122,10 @@ public class Field {
 				temp == currentField[i+1][0] ||
 				temp == currentField[i-1][1] ||
 				temp == currentField[i][1] ||
-				temp == currentField[i+1][1]) {
+				temp == currentField[i+1][1] ||
+				temp == currentField[i-1][T_Y] ||
+				temp == currentField[i][T_Y] ||
+				temp == currentField[i+1][T_Y]) {
 
 				updateField[i][0] = temp;
 			}
@@ -112,7 +135,10 @@ public class Field {
 				temp == currentField[i+1][T_Y] ||
 				temp == currentField[i-1][T_Y-1] ||
 				temp == currentField[i][T_Y-1] ||
-				temp == currentField[i+1][T_Y-1]) {
+				temp == currentField[i+1][T_Y-1] ||
+				temp == currentField[i-1][0] ||
+				temp == currentField[i][0] ||
+				temp == currentField[i+1][0]) {
 
 				updateField[i][T_Y] = temp;
 			}
@@ -123,7 +149,10 @@ public class Field {
 				temp == currentField[0][i+1] ||
 				temp == currentField[1][i-1] ||
 				temp == currentField[1][i] ||
-				temp == currentField[1][i+1]) {
+				temp == currentField[1][i+1] ||
+				temp == currentField[T_X][i-1] ||
+				temp == currentField[T_X][i] ||
+				temp == currentField[T_X][i+1]) {
 
 				updateField[0][i] = temp;
 			}
@@ -133,7 +162,10 @@ public class Field {
 				temp == currentField[T_X][i+1] ||
 				temp == currentField[T_X-1][i-1] ||
 				temp == currentField[T_X-1][i] ||
-				temp == currentField[T_X-1][i+1]) {
+				temp == currentField[T_X-1][i+1] ||
+				temp == currentField[0][i-1] ||
+				temp == currentField[0][i] ||
+				temp == currentField[0][i+1]) {
 
 				updateField[T_X][i] = temp;
 			}
@@ -151,7 +183,7 @@ public class Field {
 		for (int i = 0; i < X; i++) {
 			for (int j = 0; j < Y; j++) {
 				currentField[i][j] = updateField[i][j];
-				pixels[iteratorPixels++] = colours[updateField[i][j]];
+				pixels[iteratorPixels++] = colours[currentField[i][j]];
 			}
 		}
 
