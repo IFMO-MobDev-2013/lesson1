@@ -13,7 +13,7 @@ public class Field {
 	public static final int Y = 320;
 	private static final int T_X = X-1;
 	private static final int T_Y = Y-1;
-	private static final int COLOUR_COUNT = 3;
+	private static final int COLOUR_COUNT = 10;
 
 	private int currentField[][];
 	private int updateField[][];
@@ -24,13 +24,13 @@ public class Field {
 		colours[0] = Color.argb(255, 255, 0, 0);
 		colours[1] = Color.argb(255, 0, 255, 0);
 		colours[2] = Color.argb(255, 0, 0, 255);
-//		colours[3] = Color.argb(255, 0, 255, 255);
-//		colours[4] = Color.argb(255, 255, 0, 255);
-//		colours[5] = Color.argb(255, 255, 255, 0);
-//		colours[6] = Color.argb(255, 255, 255, 255);
-//		colours[7] = Color.argb(255, 153, 204, 153);
-//		colours[8] = Color.argb(255, 102, 204, 0);
-//		colours[9] = Color.argb(255, 102, 153, 102);
+		colours[3] = Color.argb(255, 0, 255, 255);
+		colours[4] = Color.argb(255, 255, 0, 255);
+		colours[5] = Color.argb(255, 255, 255, 0);
+		colours[6] = Color.argb(255, 255, 255, 255);
+		colours[7] = Color.argb(255, 153, 204, 153);
+		colours[8] = Color.argb(255, 102, 204, 0);
+		colours[9] = Color.argb(255, 102, 153, 102);
 
 		Random rand = new Random();
 
@@ -87,7 +87,7 @@ public class Field {
 			temp == currentField[0][0] ||
 			temp == currentField[0][T_Y]) {
 
-			updateField[X-1][0] = temp;
+			updateField[T_X][0] = temp;
 		}
 
 		temp = (currentField[0][T_Y]+1)%COLOUR_COUNT;
@@ -100,7 +100,7 @@ public class Field {
 			temp == currentField[0][0] ||
 			temp == currentField[1][0]) {
 
-			updateField[0][Y-1] = temp;
+			updateField[0][T_Y] = temp;
 		}
 
 		temp = (currentField[T_X][T_Y]+1)%COLOUR_COUNT;
@@ -113,7 +113,7 @@ public class Field {
 			temp == currentField[T_X][0] ||
 			temp == currentField[T_X-1][0]) {
 
-			updateField[X-1][Y-1] = temp;
+			updateField[T_X][T_Y] = temp;
 		}
 
 		for (int i = 1; i < T_X; i++) {

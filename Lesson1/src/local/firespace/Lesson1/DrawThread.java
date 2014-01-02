@@ -64,8 +64,7 @@ public class DrawThread extends Thread {
 	}
 
 	public void onDraw(final Canvas canvas) {
-		int[] pixels = field.updateField();
-		picture.setPixels(pixels, 0, Field.X, 0, 0, Field.X, Field.Y);
+		picture.setPixels(field.updateField(), 0, Field.X, 0, 0, Field.X, Field.Y);
 		canvas.scale(RATIO_WIDTH, RATIO_HEIGHT);
 		canvas.drawBitmap(picture, 0, 0, null);
 		drawFps(canvas);
