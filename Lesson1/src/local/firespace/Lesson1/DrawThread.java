@@ -4,9 +4,6 @@ import android.graphics.*;
 import android.os.SystemClock;
 import android.view.SurfaceHolder;
 
-/**
- * Created by FireSpace on 29.12.13.
- */
 public class DrawThread extends Thread {
 	private static final int WIDTH = MainActivity.getScreenWidth();
 	private static final int HEIGHT = MainActivity.getScreenHeight();

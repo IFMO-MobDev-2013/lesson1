@@ -3,9 +3,6 @@ package local.firespace.Lesson1;
 import android.content.Context;
 import android.view.*;
 
-/**
- * Created by FireSpace on 29.12.13.
- */
 public class WhirlView extends SurfaceView implements SurfaceHolder.Callback {
 
 	private DrawThread drawThread;

@@ -4,9 +4,6 @@ import android.graphics.Color;
 
 import java.util.Random;
 
-/**
- * Created by FireSpace on 30.12.13.
- */
 
 public class Field {
 	public static final int X = 240;
@@ -43,7 +40,7 @@ public class Field {
 	}
 
 	private boolean check(final int i, final int j) {
-		int temp = (currentField[i][j]+1)%COLOUR_COUNT;
+		int temp = (currentField[i][j] + 1)%COLOUR_COUNT;
 		return  temp == currentField[i-1][j] ||
 				temp == currentField[i+1][j] ||
 				temp == currentField[i-1][j-1] ||
@@ -75,6 +72,8 @@ public class Field {
 			temp == currentField[1][T_Y]) {
 
 			updateField[0][0] = temp;
+		} else {
+			updateField[0][0] = currentField[0][0];
 		}
 
 		temp = (currentField[T_X][0]+1)%COLOUR_COUNT;
@@ -88,6 +87,8 @@ public class Field {
 			temp == currentField[0][T_Y]) {
 
 			updateField[T_X][0] = temp;
+		} else {
+			updateField[T_X][0] = currentField[T_X][0];
 		}
 
 		temp = (currentField[0][T_Y]+1)%COLOUR_COUNT;
@@ -101,6 +102,8 @@ public class Field {
 			temp == currentField[1][0]) {
 
 			updateField[0][T_Y] = temp;
+		} else {
+			updateField[0][T_X] = currentField[0][T_X];
 		}
 
 		temp = (currentField[T_X][T_Y]+1)%COLOUR_COUNT;
@@ -114,6 +117,8 @@ public class Field {
 			temp == currentField[T_X-1][0]) {
 
 			updateField[T_X][T_Y] = temp;
+		} else {
+			updateField[T_X][T_Y] = currentField[T_X][T_Y];
 		}
 
 		for (int i = 1; i < T_X; i++) {
@@ -128,6 +133,8 @@ public class Field {
 				temp == currentField[i+1][T_Y]) {
 
 				updateField[i][0] = temp;
+			} else {
+				updateField[i][0] = currentField[i][0];
 			}
 
 			temp = (currentField[i][T_Y]+1)%COLOUR_COUNT;
@@ -141,6 +148,8 @@ public class Field {
 				temp == currentField[i+1][0]) {
 
 				updateField[i][T_Y] = temp;
+			} else {
+				updateField[i][T_Y] = currentField[i][T_Y];
 			}
 		}
 		for (int i = 1; i < T_Y; i++) {
@@ -155,6 +164,8 @@ public class Field {
 				temp == currentField[T_X][i+1]) {
 
 				updateField[0][i] = temp;
+			} else {
+				updateField[0][i] = currentField[0][i];
 			}
 
 			temp = (currentField[T_X][i]+1)%COLOUR_COUNT;
@@ -168,13 +179,17 @@ public class Field {
 				temp == currentField[0][i+1]) {
 
 				updateField[T_X][i] = temp;
+			} else {
+				updateField[T_X][i] = currentField[T_X][i];
 			}
 		}
 
 		for (int i = 1; i < T_X; i++) {
 			for (int j = 1; j < T_Y; j++) {
 				if (check(i, j)) {
-					updateField[i][j] = (currentField[i][j]+1)%COLOUR_COUNT;
+					updateField[i][j] = (currentField[i][j] + 1)%COLOUR_COUNT;
+				} else {
+					updateField[i][j] = currentField[i][j];
 				}
 			}
 		}

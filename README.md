@@ -1,6 +1,3 @@
-Ссылка на .apk
-https://www.dropbox.com/s/gbok39jf58tw96q/Lesson1.apk
-
 Материалы первой лекции:
 =======
 http://yadi.sk/d/8rCsEvMd8zvhc

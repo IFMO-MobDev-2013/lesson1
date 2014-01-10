@@ -6,10 +6,6 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.WindowManager;
 
-/**
- * Created by FireSpace on 26.12.13.
- */
-
 public class MainActivity extends Activity {
 
 	private static int screenWidth;
@@ -29,8 +25,8 @@ public class MainActivity extends Activity {
 		Display display = getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
-		screenHeight = size.y;
 		screenWidth = size.x;
+		screenHeight = size.y;
 
 
 		super.onCreate(savedInstanceState);
