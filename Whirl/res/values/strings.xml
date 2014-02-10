@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whirl</string>
+    <string name="seek_bar_desc">Number of colors : </string>
+    <string name="button_desc">Go!</string>
+    <string name="numb_colors_intent">numb</string>
+</resources>
