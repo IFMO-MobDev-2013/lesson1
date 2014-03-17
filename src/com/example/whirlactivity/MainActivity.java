@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
                 Fps = 1000 / (spentTime - startTime);
                 CntFps = 0;
             }
-            canvas.drawText("FPS=" + Fps,30,60,fpsPaint);
+            canvas.drawText("FPS=" + Fps,130,160,fpsPaint);
             startTime = spentTime;
             invalidate();
         }
